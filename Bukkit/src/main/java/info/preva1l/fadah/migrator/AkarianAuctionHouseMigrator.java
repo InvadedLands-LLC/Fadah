@@ -31,10 +31,7 @@ public final class AkarianAuctionHouseMigrator implements Migrator {
             ItemStack item = oldListing.getItemStack();
             double price = oldListing.getPrice();
 
-            String categoryId = CategoryCache.getCategoryForItem(item);
-            if (categoryId == null) {
-                categoryId = CategoryCache.getCategories().get(0).id();
-            }
+            String categoryId = CategoryCache.getCategoryForItem(item).join();
 
             long expiry = oldListing.getEnd();
             listings.add(new BinListing(id, owner, ownerName, item, categoryId, "vault", price, 0,
