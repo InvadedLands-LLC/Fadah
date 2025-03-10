@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -62,10 +63,10 @@ public abstract class SubCommand {
     }
 
     //This is default tab complete which should return a list of online players
-    public List<String> getDefaultTabComplete(CommandArguments command) {
+    public List<String> getDefaultTabComplete(Player sender, CommandArguments command) {
         List<String> completors = new ArrayList<>();
 
-        List<String> values = Bukkit.getOnlinePlayers().stream().map(HumanEntity::getName).toList();
+        List<String> values = Bukkit.getOnlinePlayers().stream().filter(sender::canSee).map(HumanEntity::getName).toList();
 
         String[] args = command.args();
 

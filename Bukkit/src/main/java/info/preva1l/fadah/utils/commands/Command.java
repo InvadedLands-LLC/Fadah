@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 
@@ -49,10 +50,10 @@ public abstract class Command {
     }
 
     //This is default tab complete which should return a list of online players
-    public List<String> getDefaultTabComplete(CommandArguments command) {
+    public List<String> getDefaultTabComplete(Player sender, CommandArguments command) {
         List<String> completors = new ArrayList<>();
 
-        List<String> values = Bukkit.getOnlinePlayers().stream().map(HumanEntity::getName).toList();
+        List<String> values = Bukkit.getOnlinePlayers().stream().filter(player -> sender != null && sender.canSee(player)).map(HumanEntity::getName).toList();
 
         String[] args = command.args();
 
@@ -135,7 +136,8 @@ public abstract class Command {
             List<String> completors = onTabComplete(new CommandArguments(sender, null, args));
 
             if (completors.isEmpty()) {
-                completors.addAll(getDefaultTabComplete(new CommandArguments(sender, null, args)));
+                Player senderPlayer = sender instanceof Player ? (Player) sender : null;
+                completors.addAll(getDefaultTabComplete(senderPlayer, new CommandArguments(sender, null, args)));
             }
             return completors;
         }
