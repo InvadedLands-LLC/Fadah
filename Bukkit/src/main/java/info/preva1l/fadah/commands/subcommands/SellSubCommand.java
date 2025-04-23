@@ -117,6 +117,7 @@ public class SellSubCommand extends SubCommand {
         }
 
         startListing(command.getPlayer(), price);
+        running.remove(command.getPlayer().getUniqueId());
     }
 
     private void startListing(Player player, double price) {
