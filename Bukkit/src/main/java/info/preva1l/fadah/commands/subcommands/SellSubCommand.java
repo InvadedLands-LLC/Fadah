@@ -71,13 +71,14 @@ public class SellSubCommand extends SubCommand {
         }
         String priceString = command.args()[0];
 
-        if (priceString.toLowerCase().contains("nan")) {
+        double price;
+        try {
+            price = StringUtils.getAmountFromString(priceString);
+        } catch (NumberFormatException e) {
             command.reply(Lang.i().getPrefix() + Lang.i().getCommands().getSell().getMustBeNumber());
             running.remove(command.getPlayer().getUniqueId());
             return;
         }
-
-        double price = StringUtils.getAmountFromString(priceString);
 
         try {
             if (price < Config.i().getListingPrice().getMin()) {
