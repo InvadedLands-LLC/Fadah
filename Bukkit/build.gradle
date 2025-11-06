@@ -33,7 +33,7 @@ dependencies {
     compileOnly "org.mariadb.jdbc:mariadb-java-client:$mariadb_version"
     compileOnly "org.mongodb:mongodb-driver-sync:$mongo_version"
 
-    implementation 'net.wesjd:anvilgui:1.10.4-SNAPSHOT' // Search Menu
+    implementation 'net.wesjd:anvilgui:1.10.7-SNAPSHOT' // Search Menu
 
     compileOnly "org.mozilla:rhino:$rhino_version"
 
