@@ -30,6 +30,7 @@ import info.preva1l.fadah.utils.logging.TransactionLogger;
 import info.preva1l.fadah.watcher.AuctionWatcher;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -181,6 +182,7 @@ public class SellSubCommand extends SubCommand {
                                             .format((taxAmount / 100) * price))
                             ));
                             Lang.sendMessage(player, message);
+                            player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_WORK_CARTOGRAPHER, 0.5f, 1.0f);
 
                             TransactionLogger.listingCreated(listing);
 
