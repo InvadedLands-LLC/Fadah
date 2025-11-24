@@ -9,7 +9,6 @@ import info.preva1l.fadah.records.ExpiredItems;
 import info.preva1l.fadah.utils.ItemSerializer;
 import info.preva1l.fadah.utils.mongo.CollectionHelper;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 import org.bson.Document;
 import org.bukkit.inventory.ItemStack;
 
@@ -53,7 +52,7 @@ public class ExpiredItemsMongoDao implements Dao<ExpiredItems> {
      */
     @Override
     public List<ExpiredItems> getAll() {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -85,7 +84,7 @@ public class ExpiredItemsMongoDao implements Dao<ExpiredItems> {
      */
     @Override
     public void update(ExpiredItems expiredItems, String[] params) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -95,7 +94,7 @@ public class ExpiredItemsMongoDao implements Dao<ExpiredItems> {
      */
     @Override
     public void delete(ExpiredItems expiredItems) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     @Override

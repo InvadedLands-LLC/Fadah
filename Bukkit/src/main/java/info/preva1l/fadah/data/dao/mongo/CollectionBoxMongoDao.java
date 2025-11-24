@@ -9,7 +9,6 @@ import info.preva1l.fadah.records.CollectionBox;
 import info.preva1l.fadah.utils.ItemSerializer;
 import info.preva1l.fadah.utils.mongo.CollectionHelper;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 import org.bson.Document;
 import org.bukkit.inventory.ItemStack;
 
@@ -53,7 +52,7 @@ public class CollectionBoxMongoDao implements Dao<CollectionBox> {
      */
     @Override
     public List<CollectionBox> getAll() {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -85,7 +84,7 @@ public class CollectionBoxMongoDao implements Dao<CollectionBox> {
      */
     @Override
     public void update(CollectionBox collectionBox, String[] params) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -95,7 +94,7 @@ public class CollectionBoxMongoDao implements Dao<CollectionBox> {
      */
     @Override
     public void delete(CollectionBox collectionBox) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     @Override

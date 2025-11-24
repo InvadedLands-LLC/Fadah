@@ -9,7 +9,6 @@ import info.preva1l.fadah.records.listing.Listing;
 import info.preva1l.fadah.utils.ItemSerializer;
 import info.preva1l.fadah.utils.mongo.CollectionHelper;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 import org.bson.Document;
 import org.bukkit.inventory.ItemStack;
 
@@ -135,7 +134,7 @@ public class ListingMongoDao implements Dao<Listing> {
      */
     @Override
     public void update(Listing listing, String[] params) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**

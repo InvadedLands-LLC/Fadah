@@ -8,7 +8,6 @@ import info.preva1l.fadah.records.listing.BinListing;
 import info.preva1l.fadah.records.listing.Listing;
 import info.preva1l.fadah.utils.ItemSerializer;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 import org.bukkit.inventory.ItemStack;
 
 import java.sql.Connection;
@@ -150,7 +149,7 @@ public class ListingSQLDao implements Dao<Listing> {
      */
     @Override
     public void update(Listing listing, String[] params) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**

@@ -7,7 +7,6 @@ import info.preva1l.fadah.Fadah;
 import info.preva1l.fadah.data.dao.Dao;
 import info.preva1l.fadah.watcher.Watching;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,7 +32,7 @@ public class WatchersSQLDao implements Dao<Watching> {
      */
     @Override
     public Optional<Watching> get(UUID id) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -93,7 +92,7 @@ public class WatchersSQLDao implements Dao<Watching> {
      */
     @Override
     public void update(Watching watching, String[] params) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -103,7 +102,7 @@ public class WatchersSQLDao implements Dao<Watching> {
      */
     @Override
     public void delete(Watching watching) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     private Connection getConnection() throws SQLException {

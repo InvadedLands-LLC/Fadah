@@ -1,39 +1,37 @@
 package info.preva1l.fadah.guis;
 
 import info.preva1l.fadah.Fadah;
-import info.preva1l.fadah.config.Menus;
 import info.preva1l.fadah.utils.TaskManager;
-import me.lucko.helper.signprompt.SignPromptFactory;
-import net.wesjd.anvilgui.AnvilGUI;
+import info.preva1l.fadah.utils.guis.SignPromptFactory;
+import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
+import java.util.List;
 import java.util.function.Consumer;
 
-public class SearchMenu implements Listener { // todo: sign gui
+public class SearchMenu implements Listener {
+
+    private static final SignPromptFactory signPromptFactory = new SignPromptFactory();
+    private static final List<Component> lines = List.of(
+            Component.empty(),
+            Component.text("↑↑↑↑↑↑↑↑↑↑↑↑"),
+            Component.text("Search")
+    );
+
     public SearchMenu(Player player, String placeholder, Consumer<String> callback) {
-        AnvilGUI.Builder guiBuilder = new AnvilGUI.Builder().plugin(Fadah.getINSTANCE())
-                .title(Menus.SEARCH_TITLE.toFormattedString());
-        guiBuilder.text(placeholder);
-
-        guiBuilder.onClick((slot, state) -> {
-            if (slot != AnvilGUI.Slot.OUTPUT) {
-                return Collections.emptyList();
+        SignPromptFactory.ResponseHandler responseHandler = new SignPromptFactory.ResponseHandler() {
+            @Override
+            public @NotNull SignPromptFactory.Response handleResponse(@NotNull List<String> list) {
+                String search = list.get(0);
+                TaskManager.Sync.runLater(Fadah.getINSTANCE(), () -> {
+                    callback.accept((search != null && search.contains(placeholder)) ? null : search);
+                },1L);
+                return SignPromptFactory.Response.ACCEPTED;
             }
-
-            String search = state.getText();
-
-            return Collections.singletonList(AnvilGUI.ResponseAction.run(() ->
-                    callback.accept((search != null && search.contains(placeholder)) ? null : search)));
-        });
-
-        guiBuilder.onClose((state)-> {
-            String search = state.getText();
-            TaskManager.Sync.runLater(Fadah.getINSTANCE(), () ->
-                    callback.accept((search != null && search.contains(placeholder)) ? null : search),1L);
-        });
-
-        guiBuilder.open(player);
+        };
+        signPromptFactory.openPrompt(player, lines, responseHandler);
     }
+
 }

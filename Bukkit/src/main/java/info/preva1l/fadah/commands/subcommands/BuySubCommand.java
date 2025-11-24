@@ -18,14 +18,14 @@ public class BuySubCommand extends SubCommand {
     @Override
     @SubCommandArgs(name = "buy", permission = "fadah.buy")
     public void execute(@NotNull SubCommandArguments command) {
+        Player player = command.getPlayer();
+
         if (command.args().length < 1) {
-            command.reply("&cYou must supply an item to search!");
+            new MainMenu(null, player, null, null, null).open(player);
             return;
         }
 
-        String search = command.args()[0];
-        Player player = command.getPlayer();
-
+        String search = String.join(" ", command.args());
         new MainMenu(null, player, search, null, null).open(player);
     }
 

@@ -9,7 +9,6 @@ import info.preva1l.fadah.records.History;
 import info.preva1l.fadah.utils.ItemSerializer;
 import info.preva1l.fadah.utils.mongo.CollectionHelper;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 import org.bson.Document;
 import org.bukkit.inventory.ItemStack;
 
@@ -55,7 +54,7 @@ public class HistoryMongoDao implements Dao<History> {
      */
     @Override
     public List<History> getAll() {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -90,7 +89,7 @@ public class HistoryMongoDao implements Dao<History> {
      */
     @Override
     public void update(History history, String[] params) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -100,6 +99,6 @@ public class HistoryMongoDao implements Dao<History> {
      */
     @Override
     public void delete(History history) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 }

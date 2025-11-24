@@ -10,7 +10,6 @@ import info.preva1l.fadah.data.gson.BukkitSerializableAdapter;
 import info.preva1l.fadah.records.CollectableItem;
 import info.preva1l.fadah.records.ExpiredItems;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 
 import java.lang.reflect.Type;
@@ -65,7 +64,7 @@ public class ExpiredItemsSQLDao implements Dao<ExpiredItems> {
      */
     @Override
     public List<ExpiredItems> getAll() {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -100,7 +99,7 @@ public class ExpiredItemsSQLDao implements Dao<ExpiredItems> {
      */
     @Override
     public void update(ExpiredItems collectableItem, String[] params) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -110,7 +109,7 @@ public class ExpiredItemsSQLDao implements Dao<ExpiredItems> {
      */
     @Override
     public void delete(ExpiredItems collectableItem) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     private Connection getConnection() throws SQLException {

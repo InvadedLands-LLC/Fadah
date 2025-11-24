@@ -10,7 +10,6 @@ import info.preva1l.fadah.data.gson.BukkitSerializableAdapter;
 import info.preva1l.fadah.records.CollectableItem;
 import info.preva1l.fadah.records.CollectionBox;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang.NotImplementedException;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 
 import java.lang.reflect.Type;
@@ -66,7 +65,7 @@ public class CollectionBoxSQLiteDao implements Dao<CollectionBox> {
      */
     @Override
     public List<CollectionBox> getAll() {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -100,7 +99,7 @@ public class CollectionBoxSQLiteDao implements Dao<CollectionBox> {
      */
     @Override
     public void update(CollectionBox collectableItem, String[] params) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     /**
@@ -110,7 +109,7 @@ public class CollectionBoxSQLiteDao implements Dao<CollectionBox> {
      */
     @Override
     public void delete(CollectionBox collectableItem) {
-        throw new NotImplementedException();
+        throw new IllegalStateException("Not implemented");
     }
 
     private Connection getConnection() throws SQLException {
