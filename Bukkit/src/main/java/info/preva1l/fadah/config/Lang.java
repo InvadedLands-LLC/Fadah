@@ -260,6 +260,18 @@ public class Lang {
             private String usage = "ah view-listing <uuid>";
             private List<String> aliases = List.of();
         }
+
+        private Buy buy = new Buy();
+
+        @Getter
+        @Configuration
+        @NoArgsConstructor(access = AccessLevel.PRIVATE)
+        public static class Buy {
+            private String description = "Search";
+            private String usage = "ah buy <search>";
+            private List<String> aliases = List.of("buy");
+        }
+
     }
 
     private AdvertActions advertActions = new AdvertActions();
