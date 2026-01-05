@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 public @interface SubCommandArgs {
     String name();
 
-    String permission() default "";
+    String permission() default "fadah.command";
 
     boolean inGameOnly() default true;
 
