@@ -101,7 +101,7 @@ public class CollectionBoxMenu extends PaginatedFastInv {
     }
 
     @Override
-    protected void updatePagination() {
+    protected synchronized void updatePagination() {
         this.collectionBox.clear();
         this.collectionBox.addAll(CollectionBoxCache.getCollectionBox(owner.getUniqueId()));
         super.updatePagination();

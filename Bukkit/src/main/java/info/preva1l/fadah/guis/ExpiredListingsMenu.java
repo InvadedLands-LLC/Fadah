@@ -102,7 +102,7 @@ public class ExpiredListingsMenu extends PaginatedFastInv {
     }
 
     @Override
-    protected void updatePagination() {
+    protected synchronized void updatePagination() {
         this.expiredItems.clear();
         this.expiredItems.addAll(ExpiredListingsCache.getExpiredListings(owner.getUniqueId()));
         super.updatePagination();

@@ -317,7 +317,7 @@ public class MainMenu extends ScrollBarFastInv {
     }
 
     @Override
-    protected void updatePagination() {
+    protected synchronized void updatePagination() {
         this.listings.clear();
         this.listings.addAll(ListingCache.getListings().values());
 

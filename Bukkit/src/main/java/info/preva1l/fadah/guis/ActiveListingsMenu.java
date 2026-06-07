@@ -76,7 +76,7 @@ public class ActiveListingsMenu extends PaginatedFastInv {
     }
 
     @Override
-    protected void updatePagination() {
+    protected synchronized void updatePagination() {
         this.listings.clear();
         this.listings.addAll(ListingCache.getListings().values());
         listings.removeIf(listing -> !listing.isOwner(owner.getUniqueId()));
